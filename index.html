@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o Amor da Minha Vida 💖</title>
+
+  <style>
+    :root{
+      --bg-light: #fce4ec;
+      --bg-darker: #f8bbd0;
+      --accent: #e91e63;
+      --accent-secondary: #c2185b;
+      --text-dark: #333333;
+      --soft-text: #666666;
+      --card-border: rgba(233, 30, 99, 0.1);
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+
+    body {
+      min-height:100vh;
+      background: radial-gradient(circle at 10% 10%, var(--bg-darker) 0%, var(--bg-light) 80%);
+      color: var(--text-dark);
+      font-family: 'Poppins', system-ui, sans-serif;
+      overflow-x: hidden;   /* permite rolar normal no celular */
+      overflow-y: auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding: 40px 20px 80px;
+      position: relative;
+    }
+
+    h1{
+      color: var(--accent); 
+      margin: 10px 0 4px;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      text-shadow: 0 0 10px rgba(233, 30, 99, 0.1);
+      display: flex; 
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align:center;
+      line-height:1.2;
+    }
+
+    .sub {
+      font-size: 1.05rem;
+      color: var(--soft-text);
+      margin-top: 0px;
+      opacity: .9;
+      text-align: center;
+    }
+
+    .cta {
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%); 
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+      transition: .25s;
+      font-weight: 600;
+      margin-top:15px;
+    }
+    .cta:hover{transform:translateY(-4px);}
+
+    /* GRID DE FOTOS */
+    .container-fotos{
+      width:100%;
+      max-width:1000px;
+      margin-top:32px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap:16px;
+      justify-items:center;
+      padding:0 5px;
+    }
+
+    .foto{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      transform: translateY(30px) scale(.97);
+      opacity:0;
+      transition: .6s;
+      border:4px solid var(--card-border);
+    }
+
+    .foto.visible{opacity:1; transform:translateY(0) scale(1);}
+    .foto:hover{transform:scale(1.04);}
+
+    .mensagem-wrap{
+      margin-top:30px;
+      text-align:center;
+      padding:0 15px;
+    }
+
+    .mensagem-principal{
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      color: var(--accent); 
+      font-weight:700;
+      opacity:0;
+      transform:translateY(8px);
+      animation: inUp 800ms forwards 400ms;
+      text-shadow:0 0 15px rgba(233, 30, 99, 0.2);
+    }
+
+    @keyframes inUp{
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .nota{
+      margin-top:18px;
+      color:var(--soft-text);
+      font-size:.9rem;
+    }
+
+    /* PARTICULAS */
+    .particle{
+      position: absolute;
+      font-size: 28px;
+      pointer-events: none;
+      opacity: 0;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    /* MOBILE */
+    @media (max-width:600px){
+      body{padding: 30px 14px 50px;}
+
+      .container-fotos{
+        gap:12px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+
+      .foto{
+        height:32vw;
+      }
+
+      h1{
+        flex-wrap:wrap;
+        font-size:1.9rem;
+      }
+
+      .cta{
+        width:90%;
+        max-width:300px;
+        font-size:1rem;
+        padding:12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>
+    <span style="font-size: 1.2em;">💖</span>
+    <span style="color: var(--accent);">Para o Amor da Minha Vida</span> 
+    <span style="font-size: 1.2em;">💖</span>
+  </h1>
+
+  <p class="sub">é maravilhoso compartilhar cada momento da vida com você</p>
+
+  <button class="cta" id="btnSurpresa">Clique aqui 🐼</button>
+
+  <div class="container-fotos" id="containerFotos">
+    <img class="foto" src="1.jpg">
+    <img class="foto" src="2.jpg">
+    <img class="foto" src="3.jpg">
+    <img class="foto" src="4.jpg">
+    <img class="foto" src="5.jpg">
+    <img class="foto" src="6.jpg">
+    <img class="foto" src="7.jpg">
+    <img class="foto" src="8.jpg">
+    <img class="foto" src="9.jpg">
+    <img class="foto" src="10.jpg">
+    <img class="foto" src="11.jpg">
+  </div>
+
+  <div class="mensagem-wrap">
+    <div class="mensagem-principal">A αγάπη αποτελείται από μία ψυχή που κατοικεί σε δύο σώματα.</div>
+    <div class="nota">Se o som não tocar automaticamente, toque na página para permitir o áudio.</div>
+  </div>
+
+  <audio id="musica" src="musica.mp3.mp3" preload="auto"></audio>
+
+  <script>
+    const btn = document.getElementById('btnSurpresa');
+    const fotos = Array.from(document.querySelectorAll('.foto')); 
+    const musica = document.getElementById('musica');
+
+    const EMOJIS = ["💖", "💕", "🌸", "🐼"];
+
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      btn.style.opacity = 0; 
+      setTimeout(()=> btn.style.display='none', 350);
+
+      // Música
+      setTimeout(async () => {
+        try{ await musica.play(); }catch(e){}
+      }, 50);
+
+      // Fotos aparecendo
+      fotos.forEach((el, i) => {
+        setTimeout(()=> el.classList.add('visible'), 600 + i*450);
+      });
+
+      // Emojis caindo
+      iniciarChuva();
+    });
+
+    function iniciarChuva(){
+      setInterval(() => {
+        criarEmoji();
+      }, 500);
+    }
+
+    function criarEmoji(){
+      const emoji = EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+
+      const span = document.createElement("div");
+      span.classList.add("particle");
+      span.textContent = emoji;
+
+      span.style.left = Math.random()*100 + "vw";
+      span.style.top = "-10vh";
+      span.style.animationDuration = (6 + Math.random()*4) + "s";
+
+      document.body.appendChild(span);
+
+      setTimeout(()=> span.remove(), 11000);
+    }
+  </script>
+
+</body>
+</html>
